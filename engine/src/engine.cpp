@@ -1,5 +1,6 @@
 #include "engine.h"
 #include <iostream>
+#include "spdlog/spdlog.h"
 
 Engine::Engine() {
 	std::cout << "Engine constructor\n";
@@ -23,5 +24,5 @@ void Engine::shutdown() {
 
 void Engine::test()
 {
-	std::cout << "Engine test\n";
+	spdlog::critical("Support for int: {0:d};  hex: {0:x};  oct: {0:o}; bin: {0:b}", 42);
 }
