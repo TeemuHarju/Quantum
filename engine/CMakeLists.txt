@@ -9,9 +9,8 @@ target_compile_definitions(Engine PRIVATE ENGINE_EXPORTS)
 
 # Find and link fmt using
 find_package(fmt CONFIG REQUIRED)
-target_link_libraries(main PRIVATE fmt::fmt)
+target_link_libraries(Engine PRIVATE fmt::fmt)
 
 # Set include directories for the engine
 target_include_directories(Engine 
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)

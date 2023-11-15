@@ -14,6 +14,6 @@ execute_process(
 
 # Install dependencies
 execute_process(
-  COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg install --triplet x64-windows
+  COMMAND ${CMAKE_CURRENT_SOURCE_DIR}/vcpkg/vcpkg install
   WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
 )

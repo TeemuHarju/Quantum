@@ -1,7 +1,7 @@
 {
-    "name": "logger",
+    "name": "quantum",
     "version-string": "1.0",
     "dependencies": [
       "fmt"
     ]
-  }
+}
