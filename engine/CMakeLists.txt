@@ -7,9 +7,9 @@ add_library(Engine SHARED
 # Set DLL export macros if needed
 target_compile_definitions(Engine PRIVATE ENGINE_EXPORTS)
 
-# Find and link spdlog using vcpkg
-find_package(spdlog CONFIG REQUIRED)
-target_link_libraries(engine PRIVATE spdlog::spdlog)
+# Find and link fmt using
+find_package(fmt CONFIG REQUIRED)
+target_link_libraries(main PRIVATE fmt::fmt)
 
 # Set include directories for the engine
 target_include_directories(Engine 

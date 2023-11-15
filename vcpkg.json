@@ -1,7 +1,7 @@
 {
-    "name": "Logger",
+    "name": "logger",
     "version-string": "1.0",
     "dependencies": [
-      "spdlog"
+      "fmt"
     ]
   }
