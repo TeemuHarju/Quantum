@@ -1,7 +1,12 @@
-# Engine library
+# Create a library for the engine
+
+# Collect all source files in the 'src' directory and its subdirectories
+file(GLOB_RECURSE ENGINE_SOURCES "src/*.cpp")
+file(GLOB_RECURSE ENGINE_HEADERS "src/*.h")
+
 add_library(engine SHARED
-    src/engine.cpp
-    src/engine.h
+    ${ENGINE_SOURCES}
+    ${ENGINE_HEADERS}
 )
 
 # Set DLL export macros if needed
