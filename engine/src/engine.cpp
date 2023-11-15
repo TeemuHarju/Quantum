@@ -24,5 +24,6 @@ void Engine::shutdown() {
 
 void Engine::test()
 {
+	uint16_t test = 32;
 	spdlog::critical("Support for int: {0:d};  hex: {0:x};  oct: {0:o}; bin: {0:b}", 42);
 }
