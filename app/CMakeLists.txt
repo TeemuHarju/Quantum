@@ -1,7 +1,7 @@
 # Main application
-add_executable(MyGameApp
+add_executable(app
     src/main.cpp
 )
 
 # Link the application with the engine library
-target_link_libraries(MyGameApp PRIVATE Engine)
+target_link_libraries(app PRIVATE engine)
