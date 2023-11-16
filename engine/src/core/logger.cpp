@@ -23,10 +23,43 @@ void Logger::Shutdown()
 	spdlog::shutdown();
 }
 
-void Logger::Log(LogLevel level, const char* message)
-{	
-	if (level == LogLevel::Fatal) {
+std::shared_ptr<spdlog::logger> Logger::GetLogger()
+{
+	return spdlog::get("QuantumEngine");
+}
 
-		spdlog::get("QuantumEngine")->critical(message);
+void Logger::Log(LogLevel level, const char* message, ...)
+{
+	// Check that we have logger.
+	auto logger = GetLogger();
+	if (logger != nullptr)
+	{
+		va_list args;
+		va_start(args, message);
+
+		// Log the message based on level.
+		switch (level)
+		{
+		case LogLevel::Trace:
+			logger->trace(message, args);
+			break;
+		case LogLevel::Debug:
+			logger->debug(message, args);
+			break;
+		case LogLevel::Info:
+			logger->info(message, args);
+			break;
+		case LogLevel::Warning:
+			logger->warn(message, args);
+			break;
+		case LogLevel::Error:
+			logger->error(message, args);
+			break;
+		case LogLevel::Critical:
+			logger->critical(message, args);
+			break;
+		}
+
+		va_end(args);
 	}
 }

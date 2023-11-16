@@ -20,3 +20,6 @@ target_compile_definitions(engine PRIVATE ENGINE_EXPORTS)
 target_include_directories(engine 
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src
     PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/spdlog/include)
+
+# Add DEBUG_MODE definition for Debug builds
+target_compile_definitions(engine PRIVATE $<$<CONFIG:Debug>:DEBUG_MODE>)

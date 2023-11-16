@@ -1,4 +1,5 @@
-#include "core/logger.h"
+#include <core/logger.h>
+#include "assert.h"
 
 int main() {
 
@@ -6,7 +7,14 @@ int main() {
 
 	logger.Initialize();
 
-	QFALTAL("Test");
+	assert(false);
+
+	QCRITICAL("Test critical");
+	QERROR("Test error");
+	QWARN("Test warn");
+	QINFO("Test info");
+	QDEBUG("Test debug");
+	QTRACE("Test trace");
 
 	return 0;
 }
