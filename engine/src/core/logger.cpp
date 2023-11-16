@@ -10,12 +10,12 @@ void Logger::Initialize()
 	consoleSink->set_pattern("%+");
 
 	std::vector<spdlog::sink_ptr> sinks{ consoleSink };
-	s_Logger = std::make_shared<spdlog::logger>("QuantumEngine", sinks.begin(), sinks.end());
+	auto logger = std::make_shared<spdlog::logger>("QuantumEngine", sinks.begin(), sinks.end());
 
-	s_Logger->set_level(spdlog::level::trace);
-	s_Logger->flush_on(spdlog::level::trace);
+	logger->set_level(spdlog::level::trace);
+	logger->flush_on(spdlog::level::trace);
 
-	spdlog::register_logger(s_Logger);
+	spdlog::register_logger(logger);
 }
 
 void Logger::Shutdown()
