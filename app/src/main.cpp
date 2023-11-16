@@ -1,12 +1,12 @@
-#include "engine.h"
+#include "core/logger.h"
 
 int main() {
-	Engine engine;
 
-	engine.initialize();
-	engine.update();
-	engine.shutdown();
-	engine.test();
+	Logger logger;
+
+	logger.Initialize();
+
+	QFALTAL("Test");
 
 	return 0;
 }
