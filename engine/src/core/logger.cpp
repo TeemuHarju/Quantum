@@ -3,6 +3,7 @@
 #include "spdlog/sinks/stdout_color_sinks.h"
 
 #include <memory>
+#include <cstdarg>
 
 void Logger::Initialize()
 {
