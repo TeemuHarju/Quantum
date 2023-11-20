@@ -2,9 +2,6 @@
     "name": "windows",
     "version-string": "1.0",
     "dependencies": [
-      {
-        "name": "fmt",
-        "features": ["c++17"]
-      }
+      "fmt"
     ]
   }
