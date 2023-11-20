@@ -4,7 +4,7 @@
 file(GLOB_RECURSE ENGINE_SOURCES "src/*.cpp")
 file(GLOB_RECURSE ENGINE_HEADERS "src/*.h")
 
-add_library(engine SHARED
+add_library(engine STATIC
     ${ENGINE_SOURCES}
     ${ENGINE_HEADERS}
 )

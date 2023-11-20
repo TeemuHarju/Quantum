@@ -3,7 +3,7 @@
 #include "defines.h"
 #include "spdlog/spdlog.h"
 
-class ENGINE_API Logger
+class Logger
 {
 public:
 	Logger() = default;
@@ -26,6 +26,7 @@ public:
 
 private:
 	static std::shared_ptr<spdlog::logger> GetLogger();
+	int test = 32;
 };
 
 

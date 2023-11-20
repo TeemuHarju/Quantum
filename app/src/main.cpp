@@ -7,7 +7,7 @@ int main() {
 
 	logger.Initialize();
 
-	assert(false);
+	//assert(false);
 
 	QCRITICAL("Test critical");
 	QERROR("Test error");
