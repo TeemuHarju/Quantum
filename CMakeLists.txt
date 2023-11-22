@@ -10,7 +10,7 @@ project(Test)
 
 message("The value of CMAKE_TOOLCHAIN_FILE is: ${CMAKE_TOOLCHAIN_FILE}")
 
-find_package(fmt REQUIRED)
+find_package(spdlog REQUIRED)
 add_executable(testapp main.cpp)
 
-target_link_libraries(testapp PRIVATE fmt::fmt fmt::fmt-header-only)
+target_link_libraries(testapp PRIVATE spdlog::spdlog)
