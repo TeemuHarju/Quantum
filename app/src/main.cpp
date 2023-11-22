@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <core/logger.h>
 
 int main()
 {

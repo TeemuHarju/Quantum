@@ -1,27 +1,23 @@
 # CMakeLists.txt in the 'engine' subdirectory
 
-# Get all source files in the 'src' directory (including subdirectories)
-file(GLOB_RECURSE ENGINE_SOURCES
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.cpp"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.c"
-)
+# Create interface library for spdlog
+find_package(spdlog REQUIRED)
+add_library(spdlog INTERFACE)
+target_include_directories(spdlog INTERFACE ${spdlog_INCLUDE_DIRS})
 
-# Get all header files in the 'src' directory (including subdirectories)
-file(GLOB_RECURSE ENGINE_HEADERS
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.h"
-    "${CMAKE_CURRENT_SOURCE_DIR}/src/*.hpp"
-)
+# Organize files into folders in Visual Studio using the provided code
+file(GLOB_RECURSE ENGINE_SOURCE_LIST *.cpp* *.h* *.hpp*)
+source_group(TREE ${CMAKE_CURRENT_SOURCE_DIR} FILES ${ENGINE_SOURCE_LIST})
 
 # Define the library target
-add_library(engine STATIC ${ENGINE_SOURCES} ${ENGINE_HEADERS})
-
-# Include directories if needed
-target_include_directories(engine
-    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include  # Include directory for public header files
-    PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src      # Include directory for internal header files
-)
-
-
-# Link any necessary libraries or dependencies
-find_package(spdlog)
+add_library(engine STATIC ${ENGINE_SOURCE_LIST})
 target_link_libraries(engine PRIVATE spdlog::spdlog)
+
+# Set include directories for the engine
+target_include_directories(engine 
+    PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/src)
+
+# Add DEBUG_MODE definition for Debug builds
+target_compile_definitions(engine PRIVATE $<$<CONFIG:Debug>:DEBUG_MODE>)
+
+
