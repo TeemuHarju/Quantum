@@ -4,9 +4,8 @@
 
 int main()
 {
-    std::string s{ "Hello, world!" }; // s makes a copy of its initializer
-    std::string f = "Hello, world!";
-    std::cout << s << '\n';
+    Logger::initialize();
+    LOG_ERROR("This is a test error.");
 
     return 0;
 }
