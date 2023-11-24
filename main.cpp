@@ -1,6 +1,6 @@
-#include "Collector.h"
+#include <iostream>
 
 int main() {
-    collectData();  // Using functionality from Collector
+    std::cout << "Hello, CMake!\n";
     return 0;
 }

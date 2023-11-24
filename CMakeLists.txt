@@ -1,19 +1,14 @@
-cmake_minimum_required(VERSION 3.28)
-project(MyApp)
+cmake_minimum_required(VERSION 3.14)
+project(MyProj VERSION 4.7.2)
 
-# Add library targets
-add_library(Collector src1.cpp)
-add_library(Algo src2.cpp)
-add_library(Engine src3.cpp)
-add_library(Ui src4.cpp)
-
-# Add executable target
+# Add the executable target
 add_executable(MyApp main.cpp)
 
-# Link libraries to targets
-target_link_libraries(Collector
-    PUBLIC Ui
-    PRIVATE Algo Engine
-)
+# Add a shared library target (AlgoRuntime)
+add_library(AlgoRuntime SHARED algo_runtime.cpp)
 
-target_link_libraries(MyApp PRIVATE Collector)
+# Add a static library target (AlgoSDK)
+add_library(AlgoSDK STATIC algo_sdk.cpp)
+
+# This concise form requires CMake 3.14 or later
+install(TARGETS MyApp AlgoRuntime AlgoSDK)
